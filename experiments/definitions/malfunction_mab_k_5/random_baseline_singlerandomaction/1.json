@@ -1,0 +1,61 @@
+{
+  "algorithm": {
+    "name": "random",
+    "params": {
+      "abstraction": true,
+      "combine_obs_state": false,
+      "string_propagation": false,
+			"alpha": 2,
+      "alpha_0": 128,
+      "delay": 6,
+      "delta": 0.2,
+      "epsilon": 0.2,
+      "mu": 0.204,
+      "n": 10,
+      "nb_episodes": 2000001,
+      "sampling_policy": "SingleRandomActionPolicy",
+      "termination_schedule": 10000,
+      "use_vmax": true,
+      "m_0": 10000,
+      "net_arch": [516, 256, 64],
+      "buffer_size": 1000,
+      "batch_size": 128,
+      "learning_rate": 1e-3,
+      "learning_starts": 5000,
+      "target_update_interval": 500,
+      "train_freq": 100,
+      "exploration_final_eps": 0.05,
+      "exploration_fraction": 0.1,
+      "total_timesteps": 10000000000,
+      "log_interval": 100,
+      "verbose": 1
+    }
+  },
+  "environment": {
+    "name": "malfunction_mab",
+    "params": {
+      "specification": {
+        "malfunction_arm": 0,
+        "malfunction_count": 5,
+        "nb_arms": 2,
+        "reward_win": 100,
+        "win_probs": [
+          0.8,
+          0.2
+        ]
+      },
+      "markovian": false,
+      "use_stop_prob": true,
+      "flicker_prob": 0.0,
+      "nb_steps": 10
+    }
+  },
+  "evaluation": {
+    "episodes": 50,
+    "frequency": 15000,
+    "steps": 10
+  },
+  "log-path": "experiments/logs/malfunction_mab_k_5_random_baseline_singlerandomaction/1/logs",
+  "log-frequency": 50000,
+	"seed": 1621849339
+}

@@ -1,0 +1,59 @@
+{
+  "algorithm": {
+    "name": "rmax",
+    "params": {
+      "abstraction": false,
+      "combine_obs_state": false,
+      "string_propagation": true,
+			"alpha": 2,
+      "alpha_0": 128,
+      "delay": 1,
+      "delta": 0.2,
+      "epsilon": 0.2,
+      "evaluation_steps": 70,
+      "mu": 0.35,
+      "n": 128,
+      "nb_episodes": 500001,
+      "sampling_policy": "RandomPolicy",
+      "termination_schedule": 10000,
+      "use_vmax": true,
+      "m_0": 5000,
+      "net_arch": [516, 256, 64],
+      "buffer_size": 1000,
+      "batch_size": 128,
+      "learning_rate": 1e-3,
+      "learning_starts": 5000,
+      "target_update_interval": 500,
+      "train_freq": 100,
+      "exploration_final_eps": 0.05,
+      "exploration_fraction": 0.1,
+      "total_timesteps": 10000000000,
+      "log_interval": 100,
+      "verbose": 1
+    }
+  },
+  "environment": {
+    "name": "enemy_corridor",
+    "params": {
+      "specification": {
+        "m": 64,
+        "probs": [
+          0.2,
+          0.9
+        ]
+      },
+      "markovian": false,
+      "use_stop_prob": true,
+      "flicker_prob": 0.0,
+      "nb_steps": 70
+    }
+  },
+  "evaluation": {
+    "episodes": 50,
+    "frequency": 15000,
+    "steps": 70
+  },
+  "log-path": "experiments/logs/enemy_corridor_k_64_rmax_baseline/2/logs",
+  "log-frequency": 50000,
+	"seed": 2
+}
