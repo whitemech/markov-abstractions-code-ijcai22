@@ -129,12 +129,11 @@ class StreamPDFALearner():
         self.t += 1
 
         # If changed, save hypothesis
-        # if changed: 
+        if changed: 
             # Save hypothesis
-            # with open(f"{self.params.log_path}/abstraction/hypotheses/hyp_{self.t}.pkl", "wb+") as f: 
-                # pickle.dump(self.graph, f)
-            # with open(f"{self.params.log_path}/abstraction/hypotheses/hyp_{self.t}.svg", "w+") as f:
-            #     f.write(self.graph.get_svg())
+            self.graph.to_dot(
+                filename=f"hyp_{self.t}", directory=f"{self.params.log_path}/abstraction/hypotheses"
+            )
 
         # Return merges
         return merges, self.graph
@@ -436,8 +435,11 @@ class Graph:
             self.transitions[new_vertex] = {}
             self.transitions[prev_state][symbol] = new_vertex
 
-    def get_svg(self, show_candidates=False):
-        graph = graphviz.Digraph(format="svg")
+    def to_dot(
+        self, filename: str = "hyp", directory: str = ".", show_candidates: bool = False
+    ) -> str:
+        print(f"Saving DOT to {directory}/{filename}")
+        graph = graphviz.Digraph(format="dot")
         graph.node("fake", style="invisible")
         for state in self.vertices:
             if state == 0:
@@ -464,4 +466,7 @@ class Graph:
                         str(end),
                         label=f"{str(char)}"
                     )
-        return graph._repr_svg_()
+        
+        # Render and save
+        graph.save(filename=filename + ".dot", directory=directory)
+        print("Finished")
