@@ -3,7 +3,6 @@ from markov_abstractions.abstraction_module.stream_learner.params import StreamP
 from markov_abstractions.abstraction_module.stream_learner.core import StreamPDFALearner
 from markov_abstractions.policies import RandomPolicy
 from markov_abstractions.utils import update_log
-from markov_abstractions.envs.lrm_env import LRMEnv
 
 from gym.spaces import Box, Discrete, MultiDiscrete
 from itertools import product
