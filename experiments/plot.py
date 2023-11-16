@@ -86,16 +86,17 @@ def plot_evaluation_average_rewards(avg_rewards_per_run, color, legend, x_cut, x
 
 
 def main():
+    x_unit = 100000
+    # x_unit = 10000 # Enemy corridor and RotMAB
+
     # Cut the x-axis at a given point
     # (no need to show all evaluations after it converged)
-    # x_unit = 100000
-    x_unit = 10000 # Enemy corridor
-    # x_cut = 50 # Rotating MAB
-    # x_cut = 30 # Malfunction MAB
-    # x_cut = 200 # Cheat MAB
-    # x_cut = 103 # Rotating Maze
+    # x_cut = 10 # Rotating MAB
+    # x_cut = 3000 # Malfunction MAB
+    x_cut = 120 # Cheat MAB
+    # x_cut = 200 # Rotating Maze
     # x_cut = 334 # Rotating MAB v2
-    x_cut = 15 # Enemy Corridor
+    # x_cut = 15 # Enemy Corridor
     # x_cut = 100 # Flickering Grid
 
     # Experiments to plot (the folder name of the experiment)
@@ -139,24 +140,29 @@ def main():
         # 'rotating_maze_k_3_rmax_abstraction',
 
         # Rotating MAB v2
+        # 'rotating_mab_v2_k_4_rmax_baseline',
         # 'rotating_mab_v2_k_8_rmax_baseline',
+        # 'rotating_mab_v2_k_4_random_baseline',
         # 'rotating_mab_v2_k_8_random_baseline',
+        # 'rotating_mab_v2_k_4_rmax_abstraction',
         # 'rotating_mab_v2_k_8_rmax_abstraction',
         
-
         # Enemy Corridor
-        'enemy_corridor_k_8_rmax_baseline',
-        'enemy_corridor_k_16_rmax_baseline',
-        'enemy_corridor_k_32_rmax_baseline',
-        'enemy_corridor_k_64_rmax_baseline',
-        'enemy_corridor_k_8_random_baseline',
-        'enemy_corridor_k_16_random_baseline',
-        'enemy_corridor_k_32_random_baseline',
-        'enemy_corridor_k_64_random_baseline',
-        'enemy_corridor_k_8_rmax_abstraction',
-        'enemy_corridor_k_16_rmax_abstraction',
-        'enemy_corridor_k_32_rmax_abstraction',
-        'enemy_corridor_k_64_rmax_abstraction',
+        # 'enemy_corridor_k_8_rmax_baseline',
+        # 'enemy_corridor_k_16_rmax_baseline',
+        # 'enemy_corridor_k_32_rmax_baseline',
+        # 'enemy_corridor_k_64_rmax_baseline',
+        # 'enemy_corridor_k_128_rmax_baseline',
+        # 'enemy_corridor_k_8_random_baseline',
+        # 'enemy_corridor_k_16_random_baseline',
+        # 'enemy_corridor_k_32_random_baseline',
+        # 'enemy_corridor_k_64_random_baseline',
+        # 'enemy_corridor_k_128_random_baseline',
+        # 'enemy_corridor_k_8_rmax_abstraction',
+        # 'enemy_corridor_k_16_rmax_abstraction',
+        # 'enemy_corridor_k_32_rmax_abstraction',
+        # 'enemy_corridor_k_64_rmax_abstraction',
+        # 'enemy_corridor_k_128_rmax_abstraction',
 
         # Flickering Grid
         # 'grid_rmax_baseline',
@@ -209,18 +215,18 @@ def main():
         # 'limegreen',
 
         # Enemy Corridor
-        'black',
-        'darkgray',
-        'dimgray',
-        'silver',
-        'darkred',
-        'red',
-        'salmon',
-        'lightsalmon',
-        'darkgreen',
-        'limegreen',
-        'mediumseagreen',
-        'turquoise',
+        # 'black',
+        # 'darkgray',
+        # 'dimgray',
+        # 'silver',
+        # 'darkred',
+        # 'red',
+        # 'salmon',
+        # 'lightsalmon',
+        # 'darkgreen',
+        # 'limegreen',
+        # 'mediumseagreen',
+        # 'turquoise',
 
         # Flickering Grid
         # 'black',
@@ -273,18 +279,18 @@ def main():
         # 'k=8 Abstraction',
 
         # Enemy Corridor
-        'k=8 RMax',
-        'k=16 RMax',
-        'k=32 RMax',
-        'k=64 RMax',
-        'k=8 Random',
-        'k=16 Random',
-        'k=32 Random',
-        'k=64 Random',
-        'k=8 Abstraction',
-        'k=16 Abstraction',
-        'k=32 Abstraction',
-        'k=64 Abstraction',
+        # 'k=8 RMax',
+        # 'k=16 RMax',
+        # 'k=32 RMax',
+        # 'k=64 RMax',
+        # 'k=8 Random',
+        # 'k=16 Random',
+        # 'k=32 Random',
+        # 'k=64 Random',
+        # 'k=8 Abstraction',
+        # 'k=16 Abstraction',
+        # 'k=32 Abstraction',
+        # 'k=64 Abstraction',
 
         # Flickering Grid
         # 'RMax',
@@ -297,7 +303,8 @@ def main():
         print(experiment)
         experiment_evaluation_runs = load_experiment_evaluation_runs(experiment)
         evaluation_avg_rewards = compute_evaluation_average_rewards_per_run(experiment_evaluation_runs)
-        plot_evaluation_average_rewards(evaluation_avg_rewards, colors[num], legend=legends[num], x_cut=x_cut, x_unit=x_unit)
+        plot_evaluation_average_rewards(evaluation_avg_rewards, colors[num], legend=experiment, x_cut=x_cut, x_unit=x_unit)
+        # plot_evaluation_average_rewards(evaluation_avg_rewards, colors[num], legend=legends[num], x_cut=x_cut, x_unit=x_unit)
 
     # Set labels, grid, legend, and save figure
     plt.tight_layout(pad=1.5) 
@@ -306,7 +313,7 @@ def main():
     plt.xlabel(f'Episodes (unit=10$^{int(np.log10(x_unit))}$)') 
     plt.grid() 
     plt.legend(loc='lower right', borderpad=0.3, labelspacing=0.4) 
-    plt.savefig(f'plot.pdf', bbox_inches='tight') 
+    plt.savefig(f'{experiment}.pdf', bbox_inches='tight') 
     plt.close() 
 
 
