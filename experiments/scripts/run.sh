@@ -38,7 +38,7 @@
 # Flickering Grid
 # bash experiments/scripts/grid_rmax_baseline.sh 
 # bash experiments/scripts/grid_random_baseline.sh 
-bash experiments/scripts/grid_rmax_abstraction.sh 
+# bash experiments/scripts/grid_rmax_abstraction.sh 
 
 # Enemy Corridor
 # bash experiments/scripts/enemy_corridor_k_2_rmax_baseline.sh 
