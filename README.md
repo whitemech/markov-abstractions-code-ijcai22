@@ -4,16 +4,16 @@ This repository holds the implementation for "Markov Abstractions for PAC Reinfo
 
 ## Requirements
 
-We use [Conda](https://docs.conda.io/en/latest/) to manage the virtual environment.
+We use [Poetry](https://python-poetry.org/) to manage the virtual environment.
 Create the virtual environment by running:
 
 ```
-conda env create --file=environment.yml
+poetry install
 ```
 
-Activate the environment:
+Activate the environment shell:
 ```
-conda activate markov-abstractions-code
+poetry shell
 ```
 
 ## Training and evaluation
