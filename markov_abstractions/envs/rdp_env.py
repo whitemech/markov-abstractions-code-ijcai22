@@ -1,4 +1,4 @@
-from gym.envs.toy_text.discrete import DiscreteEnv
+from markov_abstractions.envs.discrete_env import DiscreteEnv
 from gym.spaces import Discrete, MultiDiscrete
 from collections import defaultdict
 from functools import partial
