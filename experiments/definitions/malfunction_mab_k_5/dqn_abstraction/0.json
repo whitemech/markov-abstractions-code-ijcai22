@@ -10,7 +10,7 @@
       "delay": 6,
       "delta": 0.2,
       "epsilon": 0.2,
-      "mu": 0.0127,
+      "mu": 0.0109,
       "n": 10,
       "nb_episodes": 2000001,
       "sampling_policy": "RandomPolicy",
