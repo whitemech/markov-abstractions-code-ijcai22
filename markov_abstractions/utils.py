@@ -11,7 +11,6 @@ def initialise_log(logs_path, params):
     pathlib.Path(logs_path).mkdir(parents=True, exist_ok=True)
     pathlib.Path(f"{logs_path}/abstraction/hypotheses/").mkdir(parents=True, exist_ok=True)
     pathlib.Path(f"{logs_path}/rmax/").mkdir(parents=True, exist_ok=True)
-    pathlib.Path(f"{logs_path}/dqn/").mkdir(parents=True, exist_ok=True)
     pathlib.Path(f"{logs_path}/random/").mkdir(parents=True, exist_ok=True)
     # Write arguments along with date/time of execution
     params["datetime"] = str(datetime.datetime.now())

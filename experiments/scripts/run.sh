@@ -69,7 +69,7 @@
 # bash experiments/scripts/rotating_maze_k_3_rmax_baseline.sh 
 # bash experiments/scripts/rotating_maze_k_1_random_baseline.sh 
 # bash experiments/scripts/rotating_maze_k_2_random_baseline.sh 
-# bash experiments/scripts/rotating_maze_k_3_random_baseline.sh 
+bash experiments/scripts/rotating_maze_k_3_random_baseline.sh 
 # bash experiments/scripts/rotating_maze_k_1_rmax_abstraction.sh 
 # bash experiments/scripts/rotating_maze_k_2_rmax_abstraction.sh 
 # bash experiments/scripts/rotating_maze_k_3_rmax_abstraction.sh 

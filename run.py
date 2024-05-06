@@ -20,7 +20,7 @@ def parse_args():
         description="Run an experiment with Markov Abstractions.",
     )
     parser.add_argument("--params-file", type=str, help="Params file with all the arguments.")
-    parser.add_argument("--alg-name", type=str, default="rmax", choices=["rmax", "dqn", "random"], help="Algorithm to use.")
+    parser.add_argument("--alg-name", type=str, default="rmax", choices=["rmax", "random"], help="Algorithm to use.")
     parser.add_argument("--alg-params", type=json.loads, default='{ \
                             "abstraction": true, \
                             "combine_obs_state": false, \
